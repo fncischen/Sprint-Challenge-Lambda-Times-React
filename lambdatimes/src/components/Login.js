@@ -5,10 +5,11 @@ const Styledloginbox = styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    border-radius: 25px;
 
     background-color: #A9A9A9;
 
-    width: 300px;
+    width: 500px;
     margin: 10% auto;
 
     justify-content: center;

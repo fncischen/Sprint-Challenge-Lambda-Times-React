@@ -42,6 +42,7 @@ class App extends Component {
     if (localStorage.getItem("username") && (localStorage.getItem("password"))) {
       console.log("Logging out!");
       localStorage.clear();
+      console.log("Removed from local storage!");
       this.setState({loggingIn: false, SignInText: "Log In"});
 
       // create a new transition page
