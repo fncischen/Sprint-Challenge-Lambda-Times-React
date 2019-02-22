@@ -103,7 +103,7 @@ const TopBar = props => {
           <span>GENERAL</span><span>BROWNBAG</span><span>RANDOM</span><span>MUSIC</span><span>ANNOUNCEMENTS</span>
         </StyledContainerCenter>
         <StyledContainerRight>
-          <span onClick={props.login}>LOG IN</span>
+          <span onClick={props.login}>{props.signInText}</span>
         </StyledContainerRight>
       </StyledContainer>
     </StyledTopBar>

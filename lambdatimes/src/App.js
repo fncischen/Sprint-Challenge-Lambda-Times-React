@@ -8,7 +8,7 @@ import LogIn from './components/Login';
 const EntireSite = props => {
   return (
     <div className="App">
-      <TopBar login={props.islogin} signInText={props.signin} />
+      <TopBar login={props.islogin} signInText={props.signInText} />
       <Header />
       <Content />
     </div>
@@ -17,14 +17,14 @@ const EntireSite = props => {
 
 // Higher Order Components
 
-function authenticate(App, Login, isLoggingIn) {
-  if (isLoggingIn == true) {
-    return <Login />
-  }
-  else {
-    return <App />
-  }
-}
+// function authenticate(App, Login, isLoggingIn) {
+//   if (isLoggingIn == true) {
+//     return <Login />
+//   }
+//   else {
+//     return <App />
+//   }
+// }
 
 class App extends Component {
 
@@ -38,17 +38,23 @@ class App extends Component {
   }
 
   loggingIn = e => {
-    if (!this.state.loggingIn) {
-      this.setState({loggingIn: true})
+
+    if (localStorage.getItem("username") && (localStorage.getItem("password"))) {
+      console.log("Logging out!");
+      localStorage.clear();
+      this.setState({loggingIn: false, SignInText: "Log In"});
+
+      // create a new transition page
     }
-    else {
-      this.setState({loggingIn: false})
+    else if (this.state.loggingIn == false) {
+      console.log("Logging in!");
+      this.setState({loggingIn: true})
     }
   }
 
   componentDidMount() {
     if(localStorage.getItem("username") && (localStorage.getItem("password"))) {
-      this.setState({loggingIn: false})
+      this.setState({loggingIn: false, SignInText: "Log Out"})
     }
   }
 
@@ -60,8 +66,9 @@ class App extends Component {
       return <Login />
     }
     else {
-      return <EntireSite islogin={this.loggingIn} />
+      return <EntireSite islogin={this.loggingIn} signInText={this.state.SignInText}/>
     }
+
   }
 }
 
