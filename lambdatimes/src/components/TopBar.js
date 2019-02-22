@@ -92,7 +92,7 @@ const StyledContainerRight = styled.div`
 
 
 
-const TopBar = () => {
+const TopBar = props => {
   return (
     <StyledTopBar>
       <StyledContainer>
@@ -103,7 +103,7 @@ const TopBar = () => {
           <span>GENERAL</span><span>BROWNBAG</span><span>RANDOM</span><span>MUSIC</span><span>ANNOUNCEMENTS</span>
         </StyledContainerCenter>
         <StyledContainerRight>
-          <span>LOG IN</span>
+          <span onClick={props.login}>LOG IN</span>
         </StyledContainerRight>
       </StyledContainer>
     </StyledTopBar>
