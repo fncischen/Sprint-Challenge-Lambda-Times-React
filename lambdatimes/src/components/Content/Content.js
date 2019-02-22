@@ -12,24 +12,18 @@ export default class Content extends Component {
     this.state = {
       tabs: [],
       cards: [],
-      selected: this.state.tabs,
+      selected: "all"
     };
   }
 
   componentDidMount() {
     // Once the component has mounted, get the data and reflect that data on the state.
-    this.setState({tabs: tabData, cards: cardData, selected: tabs})
+    this.setState({tabs: tabData, cards: cardData})
   }
 
   changeSelected = tab => {
     // this function should take in the tab and update the state with the new tab.
-    if (this.state.selected.includes(tab)) {
-      this.setState({selected: this.state.selected.filter( tabItem => tabItem !=  tab) });
-    }
-    else {
-      this.setState({selected: this.state.selected.push(tab)});
-    }
-
+    this.setState({selected: tab})
   };
 
   filterCards = () => {
