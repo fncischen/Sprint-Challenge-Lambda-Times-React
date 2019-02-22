@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Card = props => {
   return (
@@ -15,5 +16,15 @@ const Card = props => {
 };
 
 // Make sure to include PropTypes.
+Card.propTypes = {
+  card: PropTypes.object.isRequired
+
+  // how to access object elements to implement prop types?
+  // do I use PropTypes.ObjectOf()?
+
+  // headline: PropTypes.string.isRequired,
+  // author: PropTypes.string.isRequired,
+  // img: PropTypes.string
+}
 
 export default Card;
